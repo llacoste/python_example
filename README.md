@@ -1,68 +1,77 @@
-Flaskr
-======
+# Python Example
+
+Simple Python Flask app for the sake of demonstrating CI/CD with Jenkins. Shamelessly stolen from:
 
 The basic blog app built in the Flask `tutorial`_.
 
 .. _tutorial: https://flask.palletsprojects.com/tutorial/
 
+## Docker
 
-Install
--------
+### Build
 
-**Be sure to use the same version of the code as the version of the docs
-you're reading.** You probably want the latest tagged version, but the
-default Git version is the main branch. ::
+```bash
+docker build -t python_example:latest .
+```
 
-    # clone the repository
-    $ git clone https://github.com/pallets/flask
-    $ cd flask
-    # checkout the correct version
-    $ git tag  # shows the tagged versions
-    $ git checkout latest-tag-found-above
-    $ cd examples/tutorial
+### Run
 
-Create a virtualenv and activate it::
+#### Interactive
 
-    $ python3 -m venv .venv
-    $ . .venv/bin/activate
+```bash
+docker run -it python_example:latest /bin/bash
+```
 
-Or on Windows cmd::
+#### Interactive with code mounted (for development)
 
-    $ py -3 -m venv .venv
-    $ .venv\Scripts\activate.bat
+```bash
+docker run -it -v $(pwd):/opt/app python_example:latest /bin/bash
+```
 
-Install Flaskr::
+#### Non Interactive
 
-    $ pip install -e .
+```bash
+docker run python_example:latest 
+```
 
-Or if you are using the main branch, install Flask from source before
-installing Flaskr::
+## Local
 
-    $ pip install -e ../..
-    $ pip install -e .
+### Install
 
+Install Flaskr
 
-Run
----
+```bash
+pip install -e .
+```
 
-.. code-block:: text
+### Run
 
-    $ flask --app flaskr init-db
-    $ flask --app flaskr run --debug
+```bash
+flask --app flaskr init-db
+flask --app flaskr run --debug
+```
 
 Open http://127.0.0.1:5000 in a browser.
 
 
-Test
-----
+## Test
 
-::
+### Docker
 
-    $ pip install '.[test]'
-    $ pytest
+```bash
+docker run python_example:latest pytest
+```
+
+### Local
+
+```bash
+pytest
+```
 
 Run with coverage report::
 
-    $ coverage run -m pytest
-    $ coverage report
-    $ coverage html  # open htmlcov/index.html in a browser
+```bash
+coverage run -m pytest
+coverage report
+coverage html  # open htmlcov/index.html in a browser
+```
