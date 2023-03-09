@@ -26,22 +26,22 @@ cat jenkins_home/secrets/initialAdminPassword
 
 ![Unlock](images/unlock.jpg)
 
-1. Log in with the password above abd you should be presented with the following:
+2. Log in with the password above abd you should be presented with the following:
 
 ![Plugins](images/plugins.jpg)
 
-1. Select `Select plugins to install`
+3. Select `Select plugins to install`
 
-1. In addition to what is already selected, install the following:
+4. In addition to what is already selected, install the following:
     - HTML Publisher
     - Github plugin
 
-1. Select install at the bottom right Jenkins will install the plugins and then present you with the following:
+5. Select install at the bottom right Jenkins will install the plugins and then present you with the following:
 
-![Admin](images/admin.jpg)
+![Admin](images/admin.png)
 
-1. Fill out the form and then select `Save and Continue`
+6. Fill out the form and then select `Save and Continue`
 
-1. Accept the url and continue then click `Start using Jenkins`
+7. Accept the url and continue then click `Start using Jenkins`
 
-1. Congratulations! Jenkins is up and running!
+8. Congratulations! Jenkins is up and running!
