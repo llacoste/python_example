@@ -12,3 +12,5 @@ build/
 .idea/
 *.swp
 *~
+jenkins_home*
+jenkins_home/*
