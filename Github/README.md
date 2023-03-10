@@ -38,3 +38,16 @@
 
 - Save the token somewhere safe, you will not be able to view it again.
 
+## Adding your ssh key to Github.
+
+- Log into Github
+
+- Select your profile at the top right and then `Settings`
+
+![Account Settings](images/account_settings.jpg)
+
+- Select `SSH and GPG Keys` on the left.
+
+- Select `New SSh key`
+
+- Fill out the form with the value of `Key` being your public ssh key.

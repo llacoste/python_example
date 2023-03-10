@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:lts-jdk11
 
 USER root
 
@@ -16,3 +16,5 @@ RUN apt-get update  -qq \
     && apt-get -y install docker-ce
     
 RUN usermod -aG docker jenkins
+
+USER jenkins
