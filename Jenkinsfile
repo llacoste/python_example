@@ -6,11 +6,13 @@ pipeline {
             agent { 
                 dockerfile true 
             }
-            stage ('Unit'){
-                sh 'pytest'
-            }
-            stage ('Lint'){
-                sh 'echo todo'
+            stages {
+                stage ('Unit'){
+                    sh 'pytest'
+                }
+                stage ('Lint'){
+                    sh 'echo todo'
+                }
             }
         }
         stage('Build') {
