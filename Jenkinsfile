@@ -8,10 +8,14 @@ pipeline {
             }
             stages {
                 stage ('Unit'){
-                    sh 'pytest'
+                    steps{
+                        sh 'pytest'
+                    }
                 }
                 stage ('Lint'){
-                    sh 'echo todo'
+                    steps{
+                        sh 'echo todo'
+                    }
                 }
             }
         }
