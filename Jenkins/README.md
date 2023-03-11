@@ -52,7 +52,9 @@ cat jenkins_home/secrets/initialAdminPassword
 
 2. Disable `Host Key Validation` by selecting `Manage Jenkins` then `Configure Global Security`. Scroll to the bottom and under `Git Host Key Verification Configuration` select `No verification`.
 
-3. (Optional) Install `Blue Ocean` by selecting `Manage Jenkins` then `Manage Plugins`. Select `Available Plugins` search for `Blue Ocean` and select `Blue Ocean`. Finally select `Install without restart`.
+3. Install Docker by selecting `Manage Jenkins` then `Manage Plugins`. Select `Available Plugins` search for `Docker`. Select both `Docker` and `Docker Pipeline`. Finally select `Install without restart`.
+
+4. (Optional) Install `Blue Ocean` by selecting `Manage Jenkins` then `Manage Plugins`. Select `Available Plugins` search for `Blue Ocean` and select `Blue Ocean`. Finally select `Install without restart`.
 
 
 ## Setup your pipeline
