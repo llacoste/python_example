@@ -10,7 +10,7 @@ dependencies = [
     "flask",
     "pytest",
     "pylint",
-    "pylint-report/
+    "pylint-report",
 ]
 
 [tool.setuptools.packages.find]
