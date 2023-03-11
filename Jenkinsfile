@@ -24,7 +24,7 @@ pipeline {
                 }
                 stage ('Lint'){
                     steps{
-                        sh 'pylint tests/ flaskr/ > lint.json && pylint_report.py lint.json -o lint.html'
+                        sh 'mkdir .cache && pylint tests/ flaskr/ > lint.json && pylint_report.py lint.json -o lint.html'
                         publishHTML (
                             target: [
                                 allowMissing: false,
