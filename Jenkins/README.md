@@ -55,7 +55,6 @@ cat jenkins_home/secrets/initialAdminPassword
 3. (Optional) Install `Blue Ocean` by selecting `Manage Jenkins` then `Manage Plugins`. Select `Available Plugins` search for `Blue Ocean` and select `Blue Ocean`. Finally select `Install without restart`.
 
 
-
 ## Setup your pipeline
 
 1. Select `Create a job`
@@ -96,6 +95,8 @@ cat jenkins_home/secrets/initialAdminPassword
     - Private Key: Select `Enter Directly` and then paste your ssh private key.
 
 12. Select `Add` and then make sure these credentials are selected.
+
+13. Under `Scan Repository Triggers` select `Periodically if not otherwise run` and then select your desired period. Normally, you would set up webhooks to post to your Jenkins instance to notify Jenkins that a commit has been made. This will allow Jenkins to query Github to see if new commits have been made every period.
 
 13. Select `Save` at the bottom of the page to save you configuration.
 
