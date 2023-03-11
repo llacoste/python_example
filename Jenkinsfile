@@ -30,14 +30,14 @@ pipeline {
                         }
                         stage ('Lint'){
                             steps{
-                                sh 'mkdir -p .lint && pylint tests/ flaskr/ > .lint/lint.json && pylint_report .lint/lint.json -o .lint/lint.html'
+                                sh 'mkdir -p .lint && pylint tests/ flaskr/ | pylint-json2html -o .lint/pylint.html'
                                 publishHTML (
                                     target: [
                                         allowMissing: false,
                                         alwaysLinkToLastBuild: false,
                                         keepAll: true,
-                                        reportDir: '.',
-                                        reportFiles: 'lint.html',
+                                        reportDir: '.lint',
+                                        reportFiles: 'pylint.html',
                                         reportName: "Linting Report"
                                     ]
                                 )

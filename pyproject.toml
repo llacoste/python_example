@@ -10,7 +10,7 @@ dependencies = [
     "flask",
     "pytest",
     "pylint",
-    "pylint-report",
+    "pylint-json2html",
 ]
 
 [tool.setuptools.packages.find]
@@ -30,9 +30,3 @@ filterwarnings = ["error"]
 [tool.coverage.run]
 branch = true
 source = ["flaskr", "tests"]
-
-[tool.pylint.MASTER]
-load-plugins = "pylint_report"
-
-[tool.pylint.REPORTS]
-output-format = "pylint_report.CustomJsonReporter"
