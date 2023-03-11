@@ -14,3 +14,4 @@ build/
 *~
 Jenkins/jenkins_home
 Jenkins/jenkins_home/*
+lint*

@@ -24,14 +24,14 @@ pipeline {
                 }
                 stage ('Lint'){
                     steps{
-                        sh 'pylint --output-format=html:pylint.html tests/ flaskr/'
+                        sh 'pylint tests/ flaskr/ > lint.json && pylint_report.py lint.json -o lint.html'
                         publishHTML (
                             target: [
                                 allowMissing: false,
                                 alwaysLinkToLastBuild: false,
                                 keepAll: true,
                                 reportDir: '.',
-                                reportFiles: 'pylint.html',
+                                reportFiles: 'lint.html',
                                 reportName: "Linting Report"
                             ]
                         )
