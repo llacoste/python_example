@@ -10,8 +10,8 @@ pipeline {
             agent { 
                 dockerfile true 
             }
-                stages {
-                    parallel {
+            stages {
+                parallel {
                     stage ('Unit'){
                         steps{
                             sh 'coverage run -m pytest && coverage report && coverage html'
