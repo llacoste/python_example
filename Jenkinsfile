@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PYLINTHOME = ".lint"
+    }
+
     stages {
         stage('Verify') {
             agent { 
@@ -24,7 +28,7 @@ pipeline {
                 }
                 stage ('Lint'){
                     steps{
-                        sh 'mkdir .cache && pylint tests/ flaskr/ > lint.json && pylint_report.py lint.json -o lint.html'
+                        sh 'mkdir .lint && pylint tests/ flaskr/ > .lint/lint.json && pylint_report .lint/lint.json -o .lint/lint.html'
                         publishHTML (
                             target: [
                                 allowMissing: false,
