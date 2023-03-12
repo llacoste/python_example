@@ -58,7 +58,8 @@ pipeline {
                 branch 'master'
             }
             steps {
-                echo 'Building..'
+                sh "docker build -t python_example:${GIT_BRANCH}_${GIT_COMMIT} ."
+                echo 'docker push ...'
             }
         }
         stage('Deploy') {
