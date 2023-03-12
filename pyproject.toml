@@ -6,15 +6,18 @@ readme = "README.rst"
 license = {text = "BSD-3-Clause"}
 maintainers = [{name = "Pallets", email = "contact@palletsprojects.com"}]
 dependencies = [
+    "coverage",
     "flask",
     "pytest",
+    "pylint",
+    "pylint-json2html",
 ]
+
+[tool.setuptools.packages.find]
+exclude = ["Github*", "Jenkins*"]
 
 [project.urls]
 Documentation = "https://flask.palletsprojects.com/tutorial/"
-
-[project.optional-dependencies]
-test = ["pytest"]
 
 [build-system]
 requires = ["setuptools"]
