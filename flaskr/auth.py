@@ -1,3 +1,4 @@
+"""This module handles authentication."""
 import functools
 
 from flask import Blueprint

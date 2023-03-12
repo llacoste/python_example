@@ -1,3 +1,4 @@
+"""This module handles DB related functionality."""
 import sqlite3
 
 import click
@@ -23,6 +24,9 @@ def close_db(e=None):
     """If this request connected to the database, close the
     connection.
     """
+    if e is not None:
+        print(e)
+
     db = g.pop("db", None)
 
     if db is not None:
