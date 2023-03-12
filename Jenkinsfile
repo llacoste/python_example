@@ -15,7 +15,10 @@ pipeline {
                     stages{
                         stage ('Unit'){
                             steps{
-                                sh 'coverage run -m pytest && coverage report && coverage html'
+                                catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                                    sh 'coverage run -m pytest'
+                                }
+                                sh 'coverage report && coverage html'
                                 publishHTML (
                                     target: [
                                         allowMissing: false,
@@ -30,7 +33,10 @@ pipeline {
                         }
                         stage ('Lint'){
                             steps{
-                                sh 'pylint --output-format=json tests/ flaskr/ | pylint-json2html -o pylint.html'
+                                catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                                    sh 'pylint --output-format=json tests/ flaskr/ > pylint.json'
+                                }
+                                sh 'cat pylint.json | pylint-json2html -o pylint.html'
                                 publishHTML (
                                     target: [
                                         allowMissing: false,
