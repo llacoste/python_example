@@ -26,7 +26,7 @@ def index():
     return render_template("blog/index.html", posts=posts)
 
 
-def get_post(post_id, check_author=True):
+def get_post(id, check_author=True):
     """Get a post and its author by id.
 
     Checks that the id exists and optionally that the current user is
@@ -44,13 +44,13 @@ def get_post(post_id, check_author=True):
             "SELECT p.id, title, body, created, author_id, username"
             " FROM post p JOIN user u ON p.author_id = u.id"
             " WHERE p.id = ?",
-            (post_id,),
+            (id,),
         )
         .fetchone()
     )
 
     if post is None:
-        abort(404, f"Post id {post_id} doesn't exist.")
+        abort(404, f"Post id {id} doesn't exist.")
 
     if check_author and post["author_id"] != g.user["id"]:
         abort(403)
@@ -86,9 +86,9 @@ def create():
 
 @bp.route("/<int:id>/update", methods=("GET", "POST"))
 @login_required
-def update(post_id):
+def update(id):
     """Update a post if the current user is the author."""
-    post = get_post(post_id)
+    post = get_post(id)
 
     if request.method == "POST":
         title = request.form["title"]
@@ -103,7 +103,7 @@ def update(post_id):
         else:
             db = get_db()
             db.execute(
-                "UPDATE post SET title = ?, body = ? WHERE id = ?", (title, body, post_id)
+                "UPDATE post SET title = ?, body = ? WHERE id = ?", (title, body, id)
             )
             db.commit()
             return redirect(url_for("blog.index"))
@@ -113,14 +113,14 @@ def update(post_id):
 
 @bp.route("/<int:id>/delete", methods=("POST",))
 @login_required
-def delete(post_id):
+def delete(id):
     """Delete a post.
 
     Ensures that the post exists and that the logged in user is the
     author of the post.
     """
-    get_post(post_id)
+    get_post(id)
     db = get_db()
-    db.execute("DELETE FROM post WHERE id = ?", (post_id,))
+    db.execute("DELETE FROM post WHERE id = ?", (id,))
     db.commit()
     return redirect(url_for("blog.index"))
