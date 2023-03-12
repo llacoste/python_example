@@ -1,3 +1,4 @@
+"""This module is the controller for the blog."""
 from flask import Blueprint
 from flask import flash
 from flask import g

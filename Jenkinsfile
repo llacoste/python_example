@@ -34,7 +34,7 @@ pipeline {
                         stage ('Lint'){
                             steps{
                                 catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {
-                                    sh 'pylint --output-format=json tests/ flaskr/ > pylint.json'
+                                    sh 'pylint --output-format=json flaskr/ > pylint.json'
                                 }
                                 sh 'cat pylint.json | pylint-json2html -o pylint.html'
                                 publishHTML (
