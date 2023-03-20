@@ -26,7 +26,7 @@ cat jenkins_home/secrets/initialAdminPassword
 
 ![Unlock](images/unlock.jpg)
 
-2. Log in with the password above abd you should be presented with the following:
+2. Log in with the password above and you should be presented with the following:
 
 ![Plugins](images/plugins.jpg)
 
@@ -48,13 +48,9 @@ cat jenkins_home/secrets/initialAdminPassword
 
 ## Setup of Jenkins
 
-1. Change the workspace location. This is primarily required if you are running Jenkins in Docker with a volume mount to your local machine. In `JENKINS_HOME` open `config.xml`. Find the line `<workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULL_NAME}</workspaceDir>` and change it to `<workspaceDir>/tmp/workspace/${ITEM_FULL_NAME}</workspaceDir>`. Reload configuration by navigating to `Manage Jenkins` then at the bottom select `Reload Configurtion From Disk`.
+1. Install Docker by selecting `Manage Jenkins` then `Manage Plugins`. Select `Available Plugins` search for `Docker`. Select both `Docker` and `Docker Pipeline`. Finally select `Install without restart`.
 
-2. Disable `Host Key Validation` by selecting `Manage Jenkins` then `Configure Global Security`. Scroll to the bottom and under `Git Host Key Verification Configuration` select `No verification`.
-
-3. Install Docker by selecting `Manage Jenkins` then `Manage Plugins`. Select `Available Plugins` search for `Docker`. Select both `Docker` and `Docker Pipeline`. Finally select `Install without restart`.
-
-4. (Optional) Install `Blue Ocean` by selecting `Manage Jenkins` then `Manage Plugins`. Select `Available Plugins` search for `Blue Ocean` and select `Blue Ocean`. Finally select `Install without restart`.
+2. (Optional) Install `Blue Ocean` by selecting `Manage Jenkins` then `Manage Plugins`. Select `Available Plugins` search for `Blue Ocean` and select `Blue Ocean`. Finally select `Install without restart`.
 
 
 ## Setup your pipeline
