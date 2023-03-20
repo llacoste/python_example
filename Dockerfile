@@ -12,4 +12,4 @@ RUN pip install --upgrade pip \
   pip install -e . 
 
 # Default command for the comntainer to run if no other command is given
-CMD flask --app flaskr init-db && flask --app flaskr run --debug
+CMD flask --app flaskr init-db && flask --app flaskr run -h 0.0.0.0 --debug
